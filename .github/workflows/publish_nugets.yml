@@ -20,6 +20,6 @@ jobs:
       
       # Publish
       - name: Add github source
-        run: nuget sources Add -Name "github" -Source "https://nuget.pkg.github.com/nahueltaibo/index.json" -UserName nahueltaibo -Password ${{ secrets.GitHubToken }}
+        run: dotnet nuget sources Add -Name "github" -Source "https://nuget.pkg.github.com/nahueltaibo/index.json" -UserName nahueltaibo -Password ${{ secrets.GitHubToken }}
       - name: Push to GitHub Packages
-        run: nuget push src/Robot.MessageBus/bin/Debug/*.nupkg -Source "github"
+        run: dotnet nuget push src/Robot.MessageBus/bin/Debug/*.nupkg -Source "github"
