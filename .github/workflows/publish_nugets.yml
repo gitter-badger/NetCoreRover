@@ -19,7 +19,5 @@ jobs:
           dotnet-version: 2.2.105
       
       # Publish
-      - name: Add github source
-        run: dotnet nuget sources Add -Name "github" -Source "https://nuget.pkg.github.com/nahueltaibo/index.json" -UserName nahueltaibo -Password ${{ secrets.GitHubToken }}
       - name: Push to GitHub Packages
-        run: dotnet nuget push src/Robot.MessageBus/bin/Debug/*.nupkg -Source "github"
+        run: dotnet nuget push src/Robot.MessageBus/bin/Debug/*.nupkg --source "https://nuget.pkg.github.com/nahueltaibo/index.json" --userName nahueltaibo --password ${{ secrets.GitHubToken }}
